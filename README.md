@@ -1,5 +1,6 @@
 ### Requirements
 * JDK 8,17
+* Maven
 
 ## APIs
 ### Customer Actions ("/v1/customer") :
@@ -23,8 +24,7 @@
 * This is a maven project so we can test, build and run using mvn commands :
   * Run Tests : `mvn test`
   * Build and generate jar : `mvn install`
-* This will generate a jar file in target folder [mini-aspire-0.0.1-SNAPSHOT.jar](target%2Fmini-aspire-0.0.1-SNAPSHOT.jar)
-* Run the jar file to start the server : `java -jar mini-aspire-0.0.1-SNAPSHOT.jar`
+* Run as spring-boot application from maven : `mvn spring-boot:run`
 * Once started you can use postman or swagger that I have integrated in the server 
 
 ## Predefined Data : 
