@@ -29,8 +29,8 @@ public class CustomerController {
         return customerHandler.createLoan(loan);
     }
 
-    @GetMapping("/loan/all/{cid}")
-    public List<LoanDto> getAllLoans(@PathVariable("cid") int cid) {
+    @GetMapping("/{cid}/loan")
+    public List<LoanDto> getAllLoansByCustomerId(@PathVariable("cid") int cid) {
         return customerHandler.getAllLoans(cid);
     }
 
@@ -38,7 +38,7 @@ public class CustomerController {
     public Optional<LoanDto> getLoanById(@PathVariable("lid") int lid, @PathVariable("cid") int cid) throws AppException {
         return customerHandler.getLoanDetailsById(lid, cid);
     }
-    @PutMapping("/{cid}/payment")
+    @PutMapping("/payment")
     public void repayAmount(@RequestBody RepaymentDto repaymentDto) throws AppException {
         customerHandler.repayLoanAmount(repaymentDto);
     }

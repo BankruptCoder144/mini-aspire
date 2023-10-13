@@ -14,7 +14,7 @@ import java.util.List;
 public class LoanDto {
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    int id;
+    int loanId;
 
     int customerId;
 

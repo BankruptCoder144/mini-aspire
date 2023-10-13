@@ -26,7 +26,7 @@ public class LoanTransformer {
 
     public LoanDto transformLoanToLoanDto(Loan loan) {
         LoanDto loanDto = new LoanDto();
-        loanDto.setId(loan.getId());
+        loanDto.setLoanId(loan.getId());
         loanDto.setLoanAmount(loan.getTotalAmount());
         loanDto.setTerms(loan.getTerms());
         loanDto.setDate(loan.getCreationDate().toString());

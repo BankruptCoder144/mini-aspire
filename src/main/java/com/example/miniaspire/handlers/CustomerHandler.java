@@ -62,7 +62,7 @@ public class CustomerHandler {
             throw new AppException(String.format("LoanId %s does not exist in DB", lid), HttpStatus.BAD_REQUEST);
         }
         if(loan.get().getCustomer().getId() != cid) {
-            throw new AppException(String.format("CustomerId %s can't access LoanId %s", cid, lid), HttpStatus.FORBIDDEN);
+            throw new AppException(String.format("CustomerId %s don't have permission to view LoanId %s", cid, lid), HttpStatus.FORBIDDEN);
         }
         LoanDto loanDto = loanTransformer.transformLoanToLoanDto(loan.get());
 
@@ -75,9 +75,14 @@ public class CustomerHandler {
             throw new AppException("Loan not found", HttpStatus.NOT_FOUND);
         }
         Loan loan = loanOpt.get();
+        if(loan.getCustomer().getId()!=repaymentDto.getCustomerId()) {
+            throw new AppException(String.format("Customer %s is not allowed to modify Loan %s",
+                    repaymentDto.getCustomerId(), repaymentDto.getLoanId()), HttpStatus.FORBIDDEN);
+        }
         if(loan.getStatus()!= Status.APPROVED) {
             throw new AppException("Loan is either not approved or already paid", HttpStatus.BAD_REQUEST);
         }
+
         List<Payment> payments = loan.getPayments();
         Payment pendingPayment = payments.stream().filter(payment ->
                 payment.getStatus() == Status.PENDING).findFirst().get();

@@ -10,7 +10,7 @@ public class PaymentTranformer {
     public PaymentDto transformPaymentToPaymentDto (Payment payment) {
         PaymentDto paymentDto = new PaymentDto();
         paymentDto.setAmount(payment.getAmount());
-        paymentDto.setId(payment.getId());
+        paymentDto.setPaymentId(payment.getId());
         paymentDto.setStatus(payment.getStatus());
         paymentDto.setDueDate(payment.getDueDate());
         return paymentDto;

@@ -12,7 +12,7 @@ public class CustomerTransformer {
 
     public CustomerDto transformCustomerToCustomerDto(Customer customer) {
         CustomerDto customerDto = new CustomerDto();
-        customerDto.setId(customer.getId());
+        customerDto.setCustomerId(customer.getId());
         customerDto.setFirstName(customer.getFirstName());
         customerDto.setLastName(customer.getLastName());
         return customerDto;

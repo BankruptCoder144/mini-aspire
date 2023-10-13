@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class PaymentDto {
-    int id;
+    int paymentId;
     float amount;
     String dueDate;
     Status status;

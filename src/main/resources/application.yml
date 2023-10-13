@@ -4,6 +4,9 @@ spring:
       enabled: true
   datasource:
     platform: h2
-    url: jdbc:h2:mem:mini-aspire
+    url: jdbc:h2:mem:mini-aspire;DB_CLOSE_ON_EXIT=FALSE
+
   jpa:
     defer-datasource-initialization: true
+    main:
+      web-application-type: none

@@ -6,4 +6,6 @@ import lombok.Data;
 public class RepaymentDto {
     float amount;
     int loanId;
+
+    int customerId;
 }

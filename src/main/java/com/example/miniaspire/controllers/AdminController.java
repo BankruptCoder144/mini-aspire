@@ -24,7 +24,7 @@ public class AdminController {
     @Autowired
     AdminHandler adminHandler;
 
-    @PutMapping("/approve/{id}")
+    @PutMapping("/loan/{id}")
     public void approveLoan(@PathVariable("id") int lid) throws AppException {
         adminHandler.approveLoanById(lid);
     }
